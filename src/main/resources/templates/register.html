@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration</h2>
+        <form method="post" role="form" th:action="@{/registration}" th:object="${user}">
+
+            <span style="color: red;" th:if="${#fields.hasErrors()}">
+                Please Fix the Following Errors and resubmit the form
+            </span>
+
+            <input type="text" name="username" placeholder="Username">
+            <span style="color: red;" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"> 
+            </span>
+
+
+            <input type="text" name="email" placeholder="Email">
+            <span style="color: red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> 
+            </span>
+
+
+            <input type="text" name="password" placeholder="Password">
+            <span style="color: red;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> 
+            </span>
+
+
+            <input type="text" name="age" placeholder="Age">
+            <span style="color: red;" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"> 
+            </span>
+
+
+            <input type="text" name="address" placeholder="Address">
+            <span style="color: red;" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"> 
+            </span>
+
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
